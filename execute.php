@@ -87,6 +87,8 @@
 		if($text=="ricchi"){
 			sendAudio($chatId,"sfera.mp3",false,"ricchiXsempre",$api);
 		}
+		if($text=="doc"){
+			sendDocument($chatId,"testo.pdf",false,"il mio documento",$api);
 		
 		
 		
