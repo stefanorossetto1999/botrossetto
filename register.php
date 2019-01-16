@@ -3,7 +3,7 @@
 		// PARAMETRI DA MODIFICARE
 		//inserite vostro indirizzo su heroku 
 		//https://username.herokuapp.com/execute.php
-		$WEBHOOK_URL = 'https://sandiano-scala-montagne.herokuapp.com/execute.php';
+		$WEBHOOK_URL = 'https://botrossetto.herokuapp.com/execute.php';
 		//inserite il vostro token che vi ha fornito l'utente telegram @botfather
 		$BOT_TOKEN = '632416820:AAFDMM0UAWUS5Ge4YXXbXnzaOiRWfXTNwu0';
 
