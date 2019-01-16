@@ -89,6 +89,7 @@
 		}
 		if($text=="doc"){
 			sendDocument($chatId,"testo.pdf",false,"il mio documento",$api);
+			}
 		
 		
 		
