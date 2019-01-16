@@ -4,7 +4,7 @@
 		require 'functions.php';
 		
 		//$api="487428045:AAFHYEqqftrK7xJvW8_9anPiodBw0HHuWkE";
-		$api ='632416820:AAFDMM0UAWUS5Ge4YXXbXnzaOiRWfXTNwu0';
+		$api ='601704865:AAHP7G3hfqyfG2Hu7DRAM1UcC7yQyB-RSE4';
 		
 		
 		//prendo quello che mi è arrivato e lo salvo nella variabile content
