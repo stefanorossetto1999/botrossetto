@@ -64,7 +64,7 @@
 			$foto[1] = "foto1.png";
 			$foto[2] = "foto2.png";
 			$num = rand(0,2);
-			$parameters = array('chat_id' => $chatId, "text" => $foto[$num]);
+			sendFoto($chatId,$foto[$num],false,"La mia Foto", $api);
 			
 		}
 		if($text=='barz'){
