@@ -1,9 +1,11 @@
-		<?php
+<?php
 		//file necessari ad inviare foto, doc e audio
 		require 'class-http-request.php';
 		require 'functions.php';
-		//modificare col vostro token del bot
-		$api="632416820:AAFDMM0UAWUS5Ge4YXXbXnzaOiRWfXTNwu0";		
+		
+		//$api="487428045:AAFHYEqqftrK7xJvW8_9anPiodBw0HHuWkE";
+		$api ='632416820:AAFDMM0UAWUS5Ge4YXXbXnzaOiRWfXTNwu0';
+		
 		
 		//prendo quello che mi è arrivato e lo salvo nella variabile content
 		$content = file_get_contents("php://input");
@@ -14,7 +16,7 @@
 		{
 		  exit;
 		}
-
+		//echo "ciao";
         //altrimenti proseguo e vado a leggere il messaggio salvandolo nella variabile 
 		//message
 		$message = isset($update['message']) ? $update['message'] : "";
@@ -42,39 +44,47 @@
 		 //l'header è sempre uguale ed indica che sarà un messaggio con codifica
 		 //JSON
 		header("Content-Type: application/json");
-		//i parametri sono cosa voglio mandare indietro al mio utente, rimando il testo che
-		//ho ricevuto e che si trova nella variabile $text
+		//i parametri sono cosa voglio mandare indietro al mio utente
 		$parameters = array('chat_id' => $chatId, "text" => $text);
-		if($text=="data"||$text=="/data"){
-			$text="La data odierna è:".date("d.m.y");
-			$parameters= array('chat_id' => $chatId, "text" => $text);
+		if ($text=="data"){
 			
-			}
+			$text = "La data odierna è ".date("d.m.y");
+			$parameters = array('chat_id' => $chatId, "text" => $text);             
 			
-			if($text=="meteo"||$text=="/meteo"){
-			$text="il meteo oggi è nevoso";
-			$parameters = array('chat_id' => $chatId,"text" => $text);
-			}
+		}
+		if ($text=="ciao"){
+			$text = "Benvenuto sul bot dell' 8 marzo";
 			
+			$parameters = array('chat_id' => $chatId, "text" => $text);             
+		}
 		if($text=="foto"||$text=="/foto"){
-			$foto[0]="foto.png";
-			$foto[1]="foto1.png";
-			$foto[2]="foto2.png";
-			$num=rand(0,2);
 			
-			sendFoto($chatId,$foto[$num],false,"La mia foto",$api);
-			}
-			if($text=="barz"){
-			$barz[0]="Un cavallo va dal benzinaio e chiede:il fieno per favore!";
-			$barz[1]="Qual'è il colmo per untuffatore? Fare un buco nell'acqua!";
-			$barz[2]"Qual'è il colmo per un centralinista? avere problemi di linea!";
-			$barz[3]="Come si chiama il povero morto in un incidente stradale? Sutankamion!";
+			//sendFoto($chatId,$foto[$num],false,"La mia Foto", $api);
+			sendFoto($chatId,"foto.png",false,"La mia Foto", $api);
+		}
+		if($text=='barz'){
+			$barz[0]="Un cavallo va dal benzinaio e chiede: il fieno per favore! ";
+			$barz[1]="Qual è il colmo per un tuffatore? Fare un buco nell'acqua.";
+			$barz[2]="Chi la fa la vende, chi la compra non la USA, chi la usa non la vede, cosa è???? La tomba. ";
+			$barz[3]="Qual è il colmo per un giardiniere? Piantare la fidanzata.";
 			
-			$i=rand(0,3);
+			$i = rand(0,3); 
 			
 			$parameters = array('chat_id' => $chatId, "text" => $barz[$i]);
-			}
-	
+		}
+		
+		if($text=="barze"){
+			$barze[0] = "Qual è la città preferita dai ragni? Mosca!";
+			$barze[1] = "Che cos'è una zebra? Un cavallo evaso dal carcere!";
+			$barze[2] = "Un alunno chiede alla maestra: “Maestra, posso essere punito per qualcosa che non ho fatto?”. E la maestra: “Certo che no! Perché me lo chiedi?”. Allora l'alunno risponde: “Perché non ho fatto i compiti!”.";
+			$num = rand(0,2);
+			$parameters = array('chat_id' => $chatId, "text" => $barze[$num]);
+			
+		}
+		
+		
+		
+		
 		
 		//aggiungo il comando di invio
 		//e lo invio
@@ -88,13 +98,3 @@
 		
 		
 		?>
-		
-		
-		
-		
-		
-		
-
-		
-		
-		
