@@ -60,7 +60,14 @@
 		if($text=="foto"||$text=="/foto"){
 			
 			//sendFoto($chatId,$foto[$num],false,"La mia Foto", $api);
-			sendFoto($chatId,"foto.png",false,"La mia Foto", $api);
+			$foto[0] = "foto.png";
+			$foto[1] = "foto1.png";
+			$foto[2] = "foto2.png”;
+			
+			$i = rand(0,2);
+			
+			$parameters = array('chat_id' => $chatId, "text" => $foto[$i]);
+			
 		}
 		if($text=='barz'){
 			$barz[0]="Un cavallo va dal benzinaio e chiede: il fieno per favore! ";
@@ -90,17 +97,9 @@
 		if($text=="doc"){
 			sendDocument($chatId,"testo.pdf",false,"il mio documento",$api);
 			}
-		if($text=="foto"||$text=="/foto"){
-			$foto[0] = "foto.png";
-			$foto[1] = "foto1.png";
-			$foto[2] = "foto2.png”;
-			$num = rand(0,2);
-			sendFoto($chatId,$foto[$num],false,"la mia foto",$api);
-					
-		}
-		
-		
-		
+			
+				
+				
 		//aggiungo il comando di invio
 		//e lo invio
 		
